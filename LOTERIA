@@ -1,0 +1,64 @@
+programa
+{
+	inclua biblioteca Util
+	inteiro sorteios [6]
+	inteiro nums[6]
+	inteiro chutes [6]
+	funcao inicio()
+	{
+		inteiro jogo = 0
+		enquanto (jogo!=5){
+		escreva("\n\n========LOTERIA========\n[1]Mega-sena\n[2]Quina\n[3]Lotomania\n[4]Lotofácil\n[5]Sair\n=======================\nDigite o Jogo que deseja: ")
+		leia(jogo)
+
+		se (jogo==1){
+
+		megasena()
+		bubble_sort()
+
+		para(inteiro j=0; j < 6; j++){
+			escreva("Digite o ",j+1,"° valor:")
+			leia(chutes[j])
+			enquanto(chutes[j]>60 ou chutes[j]<01){
+				escreva("O valor deve estar entre 01 e 60!\nTente novamente: ")
+				leia(chutes[j])}
+				arruma()
+		}}
+	}
+limpa()}
+
+
+
+    funcao bubble_sort(){                                                                                                                                                                           
+    	
+    	para(inteiro j=0; j < 36; j++){
+    		para(inteiro i=0; i < 5; i++){
+    			se(nums[i]>=nums[i+1]){
+    				inteiro copia = nums[i]
+    				nums[i] = nums[i+1]
+                    nums[i+1] = copia
+    			}
+
+		}
+   
+    	}
+    	
+    }
+    funcao megasena(){
+    para(inteiro i=0; i < 6; i++){
+     nums[i] = Util.sorteia(1,60)
+
+		}
+    }
+    funcao arruma(){.
+    	    	para(inteiro j=0; j < 36; j++){
+    		para(inteiro i=0; i < 5; i++){
+    			se(chutes[i]>=chutes[i+1]){
+    				inteiro copia = chutes[i]
+    				chutes[i] = chutes[i+1]
+    				chutes[i+1] = copia
+    	  }
+     } 
+    }
+  }   
+}
