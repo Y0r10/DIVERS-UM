@@ -13,52 +13,62 @@ programa
 
 		se (jogo==1){
 
+		sorteio(sorteios)
+		bubble_sort(sorteios)	
+			para(inteiro i=0; i < 6; i++){
+				escreva(sorteios[i],"\n")}				
 		megasena()
-		bubble_sort()
+		bubble_sort(chutes)
+		//
+		
+		para(inteiro i=0; i < 6; i++){
+				escreva(chutes[i],"\n")}
+		}
 
-		para(inteiro j=0; j < 6; j++){
-			escreva("Digite o ",j+1,"° valor:")
-			leia(chutes[j])
-			enquanto(chutes[j]>60 ou chutes[j]<01){
-				escreva("O valor deve estar entre 01 e 60!\nTente novamente: ")
-				leia(chutes[j])}
-				arruma()
-		}}
 	}
 limpa()}
 
 
 
-    funcao bubble_sort(){                                                                                                                                                                           
+    funcao bubble_sort(inteiro a[]){                                                                                                                                                                           
     	
     	para(inteiro j=0; j < 36; j++){
     		para(inteiro i=0; i < 5; i++){
-    			se(nums[i]>=nums[i+1]){
-    				inteiro copia = nums[i]
-    				nums[i] = nums[i+1]
-                    nums[i+1] = copia
-    			}
-
+    			se(a[i]>=a[i+1]){
+    				inteiro copia = a[i]
+    				a[i] = a[i+1]
+                    a[i+1] = copia
+    				}
+			}  
 		}
-   
-    	}
-    	
-    }
-    funcao megasena(){
+	}
+    funcao sorteio(inteiro a[]){
     para(inteiro i=0; i < 6; i++){
-     nums[i] = Util.sorteia(1,60)
+     a[i] = Util.sorteia(1,60)
 
 		}
     }
-    funcao arruma(){.
-    	    	para(inteiro j=0; j < 36; j++){
-    		para(inteiro i=0; i < 5; i++){
-    			se(chutes[i]>=chutes[i+1]){
-    				inteiro copia = chutes[i]
-    				chutes[i] = chutes[i+1]
-    				chutes[i+1] = copia
-    	  }
-     } 
-    }
-  }   
-}
+  funcao megasena(){
+  		para(inteiro j=0; j < 6; j++){
+			escreva("Digite o ",j+1,"° valor:")
+			leia(chutes[j])
+			enquanto(chutes[j]>60 ou chutes[j]<01){
+				escreva("O valor deve estar entre 01 e 60!\nTente novamente: ")
+				leia(chutes[j])}
+				
+				}  
+			}   
+		funcao igualdade(inteiro a[]){
+			
+			para(inteiro j=0; j < 6; j++){
+				inteiro listaRep[6]
+				listaRep[j] = a[j]}
+				
+			para(inteiro i=0; i < 36; i++){
+				para(inteiro i=0; i < 6; i++){
+			se(){
+				
+				}	}
+			}
+		}
+	}
