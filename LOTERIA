@@ -11,21 +11,28 @@ programa
 		escreva("\n\n========LOTERIA========\n[1]Mega-sena\n[2]Quina\n[3]Lotomania\n[4]Lotofácil\n[5]Sair\n=======================\nDigite o Jogo que deseja: ")
 		leia(jogo)
 
-		se (jogo==1){
+		se (jogo==1)/*megasena*/{
 
 		sorteio(sorteios) //sorteia os números do jogo!
 		bubble_sort(sorteios)//arruma o jogo em ordem crescente
-		igualdadeSorteada(sorteios)//evitando jogos repetidos					
+		igualdadeSorteada(sorteios)//evitando jogos repetidos	
+						
 			/*para(inteiro i=0; i < 6; i++){
-				escreva(sorteios[i],"\n")}	*/			
+				escreva(sorteios[i],"\n")}	*/	
+						
 		nums_chute()//deixa a pessoa escolher sua aposta
 		bubble_sort(chutes)//arruma os chutes em ordem crescente
+
+		para(inteiro i=0; i < 5; i++){
+			escreva(chutes[i]," - ")}
+			escreva(chutes[5])
+
 		
 		//precisa evitar chutes repetidos!
 		
 		para(inteiro i=0; i < 6; i++){
 				escreva(chutes[i],"\n")}
-	}
+	}	
 }
 limpa()}
 
@@ -67,20 +74,33 @@ limpa()}
 				escreva("O valor deve estar entre 01 e 60!\nTente novamente: ")
 				leia(chutes[j])}
 				
-				}  
+				igualdadeChutes()}  
 			}   
 		funcao igualdadeSorteada(inteiro a[]){
 			inteiro listaRep[6]
 			para(inteiro j=0; j < 6; j++){
 				listaRep[j] = a[j]}
-				
+				bubble_sort(a)
 			para(inteiro i=0; i < 36; i++){
 				para(inteiro j=1; j < 5; j++){
 					enquanto(a[j] == listaRep[j-1]){
 						a[j] = Util.sorteia(01,60)
-						bubble_sort(a)						
-				}
+				}bubble_sort(a)						
 			}
 		}
 	}
-}
+ 		funcao igualdadeChutes(){
+			inteiro listaRep[6]
+			inteiro resp
+			para(inteiro j=0; j < 6; j++){
+				listaRep[j] = chutes[j]}
+				bubble_sort(chutes)
+				para(inteiro j=1; j < 5; j++){
+					enquanto(chutes[j] == listaRep[j-1]){
+						escreva("Você sorteou o número ",chutes[j]," mais de uma vez!. Tente novamente: ")
+						leia(resp)
+						chutes[j] = resp
+				}bubble_sort(chutes)						
+		}
+	}
+}		
