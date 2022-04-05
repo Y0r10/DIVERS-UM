@@ -22,6 +22,7 @@ programa
 						
 		nums_chute()//deixa a pessoa escolher sua aposta
 		bubble_sort(chutes)//arruma os chutes em ordem crescente
+		igualdadeChutes()  				
 
 		para(inteiro i=0; i < 5; i++){
 			escreva(chutes[i]," - ")}
@@ -30,8 +31,8 @@ programa
 		
 		//precisa evitar chutes repetidos!
 		
-		para(inteiro i=0; i < 6; i++){
-				escreva(chutes[i],"\n")}
+		/*para(inteiro i=0; i < 6; i++){
+				escreva(chutes[i],"\n")}*/
 	}	
 }
 limpa()}
@@ -73,9 +74,8 @@ limpa()}
 			enquanto(chutes[j]>60 ou chutes[j]<01){
 				escreva("O valor deve estar entre 01 e 60!\nTente novamente: ")
 				leia(chutes[j])}
-				
-				igualdadeChutes()}  
-			}   
+  			}
+	}   
 		funcao igualdadeSorteada(inteiro a[]){
 			inteiro listaRep[6]
 			para(inteiro j=0; j < 6; j++){
@@ -90,17 +90,13 @@ limpa()}
 		}
 	}
  		funcao igualdadeChutes(){
-			inteiro listaRep[6]
 			inteiro resp
-			para(inteiro j=0; j < 6; j++){
-				listaRep[j] = chutes[j]}
-				bubble_sort(chutes)
-				para(inteiro j=1; j < 5; j++){
-					enquanto(chutes[j] == listaRep[j-1]){
-						escreva("Você sorteou o número ",chutes[j]," mais de uma vez!. Tente novamente: ")
+				para(inteiro i=1; i < 5; i++){
+					enquanto(chutes[i] == chutes[i-1] e chutes[i]!=0){
+						escreva("Você sorteou o número ",chutes[i]," mais de uma vez!\nTente novamente com outro número: ")
 						leia(resp)
-						chutes[j] = resp
-				}bubble_sort(chutes)						
-		}
+						chutes[i] = resp
+						bubble_sort(chutes)}
+				}				
 	}
 }		
