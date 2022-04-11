@@ -18,28 +18,28 @@ programa
 		igualdadeSorteada(sorteios)//evitando jogos repetidos	
 						
 			/*para(inteiro i=0; i < 6; i++){
-				escreva(sorteios[i],"\n")}	*/	
+				escreva(sorteios[i],"\n")}*/	
 						
 		nums_chute()//deixa a pessoa escolher sua aposta
 		bubble_sort(chutes)//arruma os chutes em ordem crescente
-		igualdadeChutes()  				
+		igualdadeChutes()  			
+		verificaResp(sorteios, chutes)
+			
 
-		para(inteiro i=0; i < 5; i++){
+		/*para(inteiro i=0; i < 5; i++){
 			escreva(chutes[i]," - ")}
-			escreva(chutes[5])
-
-		
-		//precisa evitar chutes repetidos!
-		
+			escreva(chutes[5])*/	
 		/*para(inteiro i=0; i < 6; i++){
 				escreva(chutes[i],"\n")}*/
-	}	
+		escreva("\n\nOs números da Mega-Sena eram:\n")
+		para(inteiro i=0; i < 5; i++){
+			escreva(sorteios[i]," - ")}
+			escreva(sorteios[5])
+				
+		}	
+	}
 }
-limpa()}
-
-
-
-    funcao bubble_sort(inteiro a[]){                                                                                                                                                                           
+    	funcao bubble_sort(inteiro a[]){                                                                                                                                                                           
     	
     	para(inteiro j=0; j < 36; j++){
     		para(inteiro i=0; i < 5; i++){
@@ -52,13 +52,13 @@ limpa()}
 			}  
 		}
 	}
-    funcao sorteio(inteiro a[]){
+    	funcao sorteio(inteiro a[]){
     para(inteiro i=0; i < 6; i++){
      a[i] = Util.sorteia(1,60)
 
 		}
     }
-  funcao nums_chute(){
+  	funcao nums_chute(){
   		para(inteiro j=0; j < 6; j++){
 			escreva("Digite o ",j+1,"° valor:")
 			leia(chutes[j])
@@ -76,27 +76,48 @@ limpa()}
 				leia(chutes[j])}
   			}
 	}   
-		funcao igualdadeSorteada(inteiro a[]){
-			inteiro listaRep[6]
-			para(inteiro j=0; j < 6; j++){
-				listaRep[j] = a[j]}
-				bubble_sort(a)
-			para(inteiro i=0; i < 36; i++){
-				para(inteiro j=1; j < 5; j++){
-					enquanto(a[j] == listaRep[j-1]){
-						a[j] = Util.sorteia(01,60)
-				}bubble_sort(a)						
-			}
-		}
-	}
- 		funcao igualdadeChutes(){
+	funcao igualdadeSorteada(inteiro a[]){
 			inteiro resp
-				para(inteiro i=1; i < 5; i++){
+			para(inteiro j=0; j < 36; j++){
+				para(inteiro i=1; i < 6; i++){
+					enquanto(a[i] == a[i-1] e a[i]!=0){
+					resp = Util.sorteia(01, 60)
+					a[i] = resp
+				bubble_sort(a)}
+			}
+ 		}
+	}
+ 	funcao igualdadeChutes(){
+			inteiro resp
+			para(inteiro j=0; j < 36; j++){
+				para(inteiro i=1; i < 6; i++){
 					enquanto(chutes[i] == chutes[i-1] e chutes[i]!=0){
-						escreva("Você sorteou o número ",chutes[i]," mais de uma vez!\nTente novamente com outro número: ")
+						escreva("Você sorteou o número '",chutes[i],"' mais de uma vez!\nTente novamente com outro número: ")
 						leia(resp)
 						chutes[i] = resp
 						bubble_sort(chutes)}
-				}				
+			}
+ 		}				
 	}
-}		
+	funcao verificaResp(inteiro sort[], inteiro resps[]){
+		inteiro acertos = 0
+		inteiro acertados [6]
+		para(inteiro i=0; i < 6; i++){
+			para(inteiro j=0; j < 6; j++){
+				se(sort[i] == resps[j]){
+					escreva(sort[i]," ESTÁ CORRETO!\n")
+					acertos = acertos+1
+					acertados[i] = sort[i]
+				}}}
+	se(acertos == 0){
+	escreva("Infelizmente nenhum número está correto :(\nBoa sorte da próxima vez!")
+		}senao{
+		escreva("Você obteve um total de ",acertos," acerto(s): ")
+		para(inteiro i=0; i < 6; i++){
+			se(acertados[i]!=0){
+				escreva(acertados[i],"  ")
+				}
+			}
+		}	
+	}
+}
