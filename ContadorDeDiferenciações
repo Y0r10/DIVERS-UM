@@ -1,0 +1,45 @@
+programa
+{
+	inclua biblioteca Util
+	
+	funcao inicio()
+	{
+		inteiro listaDePossibi[9999]
+		inteiro contadorDiferentes = 0
+		inteiro numA = 0,numB = 0,numC = 0,numD = 0, x = 0
+		
+		enquanto(numA+numB+numC+numD!=36){
+		escreva(numA,numB,numC,numD,"\n")
+		se(numD==9){
+			numD=0
+			numC++
+			}senao{
+				numD++
+			}
+		se(numC>9){
+			numD=0
+			numC=0
+			numB++
+			}
+		se(numB>9 e numC==9 e numD==9 ){
+			numD=0
+			numC=0
+			numB=0
+			numA++
+			}
+		se (numB==10){
+			numB=0
+			numA++ 
+			}
+
+		}/*enquanto (numD!=numC e numD!=numB e numD!=numA e numC!=numB e numC!=numA e numB!=numA){
+			contadorDiferentes++
+			}
+		contadorDiferentes = listaDePossibi[x]
+		x++
+
+		PRECISO ACHAR UM JEITO DE MONTAR O CONTADOR DE NUMERAÇÕES DIFERENTES!
+		*/
+		
+	}	
+}
