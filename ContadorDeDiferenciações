@@ -6,7 +6,8 @@ programa
 	{
 		inteiro listaDePossibi[9999]
 		inteiro contadorDiferentes = 0
-		inteiro numA = 0,numB = 0,numC = 0,numD = 0, x = 0
+		inteiro numA = 0,numB = 0,numC = 0,numD = 0, x = 0, j = 0
+		inteiro listaFinal[9999]
 		
 		enquanto(numA+numB+numC+numD!=36){
 		escreva(numA,numB,numC,numD,"\n")
@@ -32,14 +33,43 @@ programa
 			numA++ 
 			}
 
-		}/*enquanto (numD!=numC e numD!=numB e numD!=numA e numC!=numB e numC!=numA e numB!=numA){
-			contadorDiferentes++
-			}
-		contadorDiferentes = listaDePossibi[x]
-		x++
-
-		PRECISO ACHAR UM JEITO DE MONTAR O CONTADOR DE NUMERAÇÕES DIFERENTES!
-		*/
 		
+		se (numD!=numC e numD!=numB e numD!=numA e numC!=numB e numC!=numA e numB!=numA){
+			contadorDiferentes++
+
+		}senao{
+			 listaDePossibi[x] = contadorDiferentes
+			x++
+			contadorDiferentes = 0
+			}
+		
+		
+		}
+
+		para(inteiro i=0; i < 9999; i++){
+			se (listaDePossibi[i]!=0){
+				listaFinal[j]=listaDePossibi[i]
+				j++
+				escreva(listaDePossibi[i]," - ")
+		}
+	}
+		bubble_sort(listaFinal)
+		escreva("\n\n",listaFinal[9999])
+		/*FUNCIONOU, agr n sei oq fazer com isso... se divirta com o resultado
+		OBs: o programa basicamente conta quantas sequências de números diferentes podem ser formados com números de 4 dígitos
+		*/
 	}	
+    	funcao bubble_sort(inteiro a[]){                                                                                                                                                                           
+    	
+    	para(inteiro j=0; j < 36; j++){
+    		para(inteiro i=0; i < 5; i++){
+    			se(a[i]>=a[i+1]){
+    				inteiro copia = a[i]
+    				a[i] = a[i+1]
+                    a[i+1] = copia
+                    
+    				}
+			}  
+		}
+	}
 }
