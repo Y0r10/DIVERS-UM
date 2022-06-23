@@ -46,23 +46,23 @@ programa
 		
 		}
 
-		para(inteiro i=0; i < 9999; i++){
+		/*para(inteiro i=0; i < 9999; i++){
 			se (listaDePossibi[i]!=0){
 				listaFinal[j]=listaDePossibi[i]
 				j++
 				escreva(listaDePossibi[i]," - ")
 		}
-	}
+	}*/
 		bubble_sort(listaFinal)
-		escreva("\n\n",listaFinal[9999])
+	escreva("\n\n",listaFinal[0],"<-- menor maior-->", listaFinal[9996]," ",listaFinal[9997]," ",listaFinal[9998])
 		/*FUNCIONOU, agr n sei oq fazer com isso... se divirta com o resultado
 		OBs: o programa basicamente conta quantas sequências de números diferentes podem ser formados com números de 4 dígitos
 		*/
 	}	
     	funcao bubble_sort(inteiro a[]){                                                                                                                                                                           
     	
-    	para(inteiro j=0; j < 36; j++){
-    		para(inteiro i=0; i < 5; i++){
+    	para(inteiro j=0; j < 9998; j++){
+    		para(inteiro i=0; i < 9997; i++){
     			se(a[i]>=a[i+1]){
     				inteiro copia = a[i]
     				a[i] = a[i+1]
@@ -71,5 +71,17 @@ programa
     				}
 			}  
 		}
+	}
+	funcao contadorDeMaiores(inteiro a[]){
+		inteiro maiorNum = 0
+		para(inteiro i=0; i < 9999; i++){
+			se(a[i+1]>a[i]){
+				maiorNum = a[1+i]
+			}
+
+		}
+
+
+		
 	}
 }
